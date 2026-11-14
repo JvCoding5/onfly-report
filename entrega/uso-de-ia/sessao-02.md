@@ -57,6 +57,7 @@ Para cada defeito, o usuário definiu 7 etapas: (1) trecho e comportamento atual
 O Claude também alertou que o limite de 200 linhas e o uso de `float` não eram cobertos pela suíte.
 
 **10:47 Medição por fora.** O usuário rodou o CLI (arquivo completo e amostra) e pediu a comparação com o README. Medidas dele: `Reservas: 200`, `Confirmadas: 153`, `Noites: -1393`, `Total BRL: 193218.53`; CSV com 300 linhas e status 31/235/34; amostra com `Noites: -33` e `Total BRL: 5962.41`. O Claude leu `output/report.json` e `output/exemplo.json` e listou toda divergência no formato "checagem | esperado | obtido". Destaques: 300 linhas do arquivo contra 200 no relatório; `by_month` somando 178 contra 153 confirmadas (efeito do `NO_SHOW`); ranking crescente; amostra com 4 campos do resumo certos e o resto errado.
+
 **10:49 e 10:50 Início do tratamento sequencial.** O usuário colou o modelo de 7 etapas com o campo do defeito sem preencher. O Claude perguntou qual defeito. O usuário respondeu "Vamos sequencialmente.", e o Claude começou pelo filtro de status.
 
 **10:51 a 10:53 Filtro de status, etapas 1 a 4.** Causa raiz: a política foi escrita como "tudo, menos `CANCELLED`", quando o README manda "somente `CONFIRMED`". O Claude propôs a correção e aguardou o "aplicar".
